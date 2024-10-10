@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Converter</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #007BFF;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* Таблица */
+    .rates-table {
+      background-color: white;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px 0;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .rates-table th, .rates-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .rates-table th {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    .rates-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* Адаптивный дизайн для таблицы */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .rates-table {
+        width: 100%;
+      }
+    }
+  </style>
+  <script src="js/converter.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Crypto Converter</h1>
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" placeholder="Enter amount" required>
+    </div>
+    <div>
+      <label for="fromCurrency">From:</label>
+      <select id="fromCurrency">
+        <option value="bitcoin">Bitcoin (BTC)</option>
+        <option value="ethereum">Ethereum (ETH)</option>
+      </select>
+    </div>
+    <div>
+      <label for="toCurrency">To:</label>
+      <select id="toCurrency">
+        <option value="usd">US Dollar (USD)</option>
+        <option value="eur">Euro (EUR)</option>
+        <option value="jpy">Japanese Yen (JPY)</option>
+      </select>
+    </div>
+    <button onclick="convert()">Convert</button>
+    <p id="result"></p>
+  </div>
+
+ 
+  <table class="rates-table" id="cryptoRatesTable">
+    <thead>
+      <tr>
+        <th>Cryptocurrency</th>
+        <th>Price (USD)</th>
+        <th>Price (EUR)</th>
+        <th>Price (JPY)</th>
+      </tr>
+    </thead>
+    <tbody id="cryptoRatesBody">
+      
+    </tbody>
+  </table>
+
+</body>
+</html>
