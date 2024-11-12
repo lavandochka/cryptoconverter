@@ -28,7 +28,7 @@ async function convert() {
       const data = await response.json();
   
       const cryptoRatesBody = document.getElementById('cryptoRatesBody');
-      cryptoRatesBody.innerHTML = ''; // Очищаем таблицу перед добавлением новых данных
+      cryptoRatesBody.innerHTML = ''; 
   
     for (key in data ){
       console.log(data[key])
